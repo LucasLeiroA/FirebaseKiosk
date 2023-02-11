@@ -1,0 +1,10 @@
+button{
+    border: transparent;
+    border-radius: 10px;
+}
+button:active{
+    transform: scale(.9);
+}
+button:hover{
+    color: green;
+}

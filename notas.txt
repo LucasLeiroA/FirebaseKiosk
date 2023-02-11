@@ -1,0 +1,4 @@
+// para que inciar json tenes que utilizar los siguientes comandos 
+
+json-server --watch nombre-del-archivo.json
+

@@ -1,0 +1,50 @@
+#edit1:hover{
+    color: blue;
+}
+#edit1:active{
+    transform: scale(.9);
+}
+
+button{
+    border-radius: 10px;
+
+}
+/*
+#selector{
+    position: relative;
+    left: 40%;
+    top: 11px;
+}
+#titulo{
+    position: relative;
+    left: 40%;
+    top: 10px;
+}*/
+button:hover{
+    color: green;
+}
+button:active{
+    transform: scale(.9);
+}
+button#btnAceptar{
+    border: transparent;
+    border-radius: 10px;
+
+}
+button#btnAceptar:active{
+transform: scale(.9);
+}
+button#btnAceptar:hover{
+    color: green;
+}
+/*
+
+img#logo{
+    position: relative;
+    left: 94%;
+    bottom: 120px;
+}*/
+/*li img#logo{
+    position: relative;
+    left: 30px;
+}*/

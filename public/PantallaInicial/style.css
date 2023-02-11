@@ -1,0 +1,34 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    
+}
+body{
+    width: 100vw;
+    height: 100vh;
+   
+}
+#imgID{
+    height: 100vh;
+    width: 100vw;
+    background: url(../imagenes/tec.jpg) no-repeat center center fixed;
+}
+nav{
+    height: 10%;
+}
+article{
+    width: 100%;
+    height: 70%;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+footer{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}

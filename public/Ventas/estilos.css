@@ -1,0 +1,131 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    height: 100%;
+}
+label{
+    margin: 15px;
+    font-weight: 500;
+}
+button{
+    border: none;
+    padding: 2px;
+}
+#btn_tipo_venta{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 10vh;
+    left: 0px;
+}
+
+#mostrar_ventaContado{
+    background-color: green;
+    color: black;
+}
+#mostrar_ventaCuentaCorriente{
+    background-color: rgb(27, 156, 199);
+    color: black;
+}
+#mostrar_ventaTarjeta{
+    background-color: rgb(223, 199, 17);
+    color: black;
+}
+#btn_tipo_venta button{
+    margin: 5px;
+}
+#btn_tipo_venta button:hover{
+    color: white;
+}
+
+
+#lupa{
+   
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+#lupaClientes{
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+#selectorArticulos{
+    margin-left: 100px;
+}
+
+table{
+    text-align: center;
+   
+}
+#btn{
+    border: none;
+    font-weight: 600;
+    font-size: large;
+}
+#btns{
+    text-align: center;
+}
+input{
+    text-align: center;
+}
+
+button:active{
+    transform: scale(.9);
+}
+button:hover{
+    color: green;
+}
+
+#contenedor1{
+    display: flex;
+    justify-content: center;
+}
+
+
+#div1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 30%;
+    margin-top: 20px;
+    
+}
+
+#muestra{
+    overflow: auto;
+    height: 75vh;
+    width: 100%;
+}
+
+
+#container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0px;
+    height: 80vh;
+    width: 30%;
+}
+section h3{
+    text-align: center;
+    padding: 20px;
+    color: rgb(14, 4, 99);
+}
+section{
+    padding: 4vh;
+    border-radius: 20px;
+}
+
+section input{
+    border-radius: 20px;
+    padding: 3px;
+}
+section button{
+    border-radius: 20px;
+    padding: 4px;
+}
