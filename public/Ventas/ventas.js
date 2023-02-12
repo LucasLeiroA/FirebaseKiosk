@@ -161,24 +161,7 @@ cambioContado.addEventListener("keyup", function(){
   }, 500);
 }, false);
 
-// async function calcularVentaContado() {
-//   let precio;
 
-//   let total;
-//   let nombreArt = document.getElementById("articuloContado").value;
-//   let articulo = await getItems("articulo");
-//   let cantidad = document.getElementById("cantidadContado").value;
-
-//   for (let item of articulo) {
-//     if (nombreArt == item.nombre) {
-//       precio = item.PrecioVenta;
-//     }
-//   }
-
-//   total = parseInt(precio * cantidad);
-
-//   document.getElementById("totalContado").value = total;
-// }
 
 function cancelarVentaContado() {
   document.getElementById("cliente").value = "";

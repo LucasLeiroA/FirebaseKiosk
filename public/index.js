@@ -48,9 +48,9 @@ async function loginFormulario() {
         title: "Acceso Permitido!",
         icon: "success",
       });
-
+      
+      window.location = "./PantallaInicial/principal.html"
         
-         window.location="./PantallaInicial/principal.html"
 
 
 

@@ -686,7 +686,7 @@ async function aceptarOpcion(){
                  }
 
              }
-             if (reporte=="movimientosDeCaja") {
+             if (reporte=="movimientosDeCajaTarjeta") {
                    
                 document.getElementById("cabezaTabla").innerHTML+=
                 `
@@ -702,15 +702,18 @@ async function aceptarOpcion(){
                 let movEntrada=await getItems("ingresoDinero");
             
                 for (let item of movEntrada) {
+                    if (item.tipo == "3") {
+                        
+                        document.getElementById("tablaMuestra").innerHTML+= 
+                             `
+                             <tr>
+                                   <th scope="row">${item.id}</th>
+                                   <td>${item.dinero}</td>
+                                   <td>${item.descripcion}</td>  
+                                   <td>Ingreso De Dinero</td>                                                    
+                               </tr>`;
+                    }
 
-                    document.getElementById("tablaMuestra").innerHTML+= 
-                         `
-                         <tr>
-                               <th scope="row">${item.id}</th>
-                               <td>${item.dinero}</td>
-                               <td>${item.descripcion}</td>  
-                               <td>Ingreso De Dinero</td>                                                    
-                           </tr>`;
                 }
 
             
@@ -718,17 +721,73 @@ async function aceptarOpcion(){
                 let salDinero=await getItems("salidaDinero");
            
                 for (let item of salDinero) {
-                    document.getElementById("tablaMuestra").innerHTML+= 
-                    `
-                    
-                        <tr>
-                               <th scope="row">${item.id}</th>
-                               <td>-${item.dinero}</td>
-                               <td>${item.descripcion}</td>  
-                               <td>Salida De Dinero</td>                           
-                           </tr>
-                    
-                    `;
+                    if(item.tipo == "3"){
+
+                        document.getElementById("tablaMuestra").innerHTML+= 
+                        `
+                        
+                            <tr>
+                                   <th scope="row">${item.id}</th>
+                                   <td>-${item.dinero}</td>
+                                   <td>${item.descripcion}</td>  
+                                   <td>Salida De Dinero</td>                           
+                               </tr>
+                        
+                        `;
+                    }
+
+                }
+                 
+             }
+             if (reporte=="movimientosDeCajaEfectivo") {
+                   
+                document.getElementById("cabezaTabla").innerHTML+=
+                `
+                <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Dinero</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Tipo</th>
+                </tr>
+        
+                `
+
+                let movEntrada=await getItems("ingresoDinero");
+            
+                for (let item of movEntrada) {
+                    if (item.tipo == "1") {
+                        
+                        document.getElementById("tablaMuestra").innerHTML+= 
+                             `
+                             <tr>
+                                   <th scope="row">${item.id}</th>
+                                   <td>${item.dinero}</td>
+                                   <td>${item.descripcion}</td>  
+                                   <td>Ingreso De Dinero</td>                                                    
+                               </tr>`;
+                    }
+
+                }
+
+            
+
+                let salDinero=await getItems("salidaDinero");
+           
+                for (let item of salDinero) {
+                    if (item.tipo == "1") {
+                        
+                        document.getElementById("tablaMuestra").innerHTML+= 
+                        `
+                        
+                            <tr>
+                                   <th scope="row">${item.id}</th>
+                                   <td>-${item.dinero}</td>
+                                   <td>${item.descripcion}</td>  
+                                   <td>Salida De Dinero</td>                           
+                               </tr>
+                        
+                        `;
+                    }
 
                 }
                  
