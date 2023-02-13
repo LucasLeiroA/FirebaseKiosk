@@ -6,17 +6,19 @@ import { getItems , deleteSingleItem , IngresarDatos ,modificarItem } from "../f
 
 
 let urlActual = window.location.href;
-let url = localStorage.getItem("urlAdmin");
+let urlAdmin = localStorage.getItem("urlAdmin");
 
 let UrlAnterior = document.referrer;
 
-if(urlActual !== urlActual){
-if(UrlAnterior !== url ){
-    
-alert('no intentes hackear')
-window.location= "./Admin.html";
-}   
+if (UrlAnterior !== urlActual) {
+  
+    if(UrlAnterior !== urlAdmin ){
+        
+      alert("Acceso Denegado")
+    window.location= "./Admin.html";
+    }   
 }
+
 
 
 localStorage.setItem("urlRegistrar" , urlActual);
