@@ -5,6 +5,8 @@ import { getItems, IngresarDatos, modificarItem } from "../firebase.js";
 function principal(){
     document.getElementById("btnpagar").addEventListener("click", pagaoDeuda)
     document.getElementById("btn-buscador").addEventListener("click",filtroCliente)
+    document.getElementById("btn-detalle").addEventListener("click" ,detalleCliente)
+    document.getElementById("btn-volver").addEventListener("click",volver)
 }
 var var_id;
 
@@ -210,4 +212,60 @@ async function pagaoDeuda(){
     }
  
 
+}
+
+async function detalleCliente(){
+  document.getElementById("btn-volver").style.display="block"
+  document.getElementById("cuerpoTabla").innerHTML="";
+  document.getElementById("cuerpoTabla").innerHTML=`
+  <tr id="cabeza-detalle">
+  <th scope="col">Articulo</th>
+  <th scope="col">Cantidad</th>
+</tr>
+  `
+  let nombreCliente = document.getElementById("inpu").value;
+  
+  let idCliente;
+  let clientes = await getItems("clientes");
+
+
+  for (const item of clientes) {
+    if(item.nomYape == nombreCliente){
+      idCliente = item.id
+    }
+  }
+
+  let ventas = await getItems("ventas")
+  let articulos = await getItems("articulo")
+  for (const item of ventas) {
+          if (item.tipoVentaId == "2") {
+            
+                      if(item.clientesId == idCliente){
+                        for (const item2 of articulos) {
+                           if (item.articuloId == item2.id) {
+                            
+                             document.getElementById("cuerpoTabla").innerHTML+= `
+                             <tr id="cuerpo-detalle">
+                             <td >${item2.nombre}</td>
+                             <td >${item.cantidad}</td>
+                           </tr>
+                           
+                           
+                                 `
+                                
+                           }
+                        }
+                      }
+          }
+    }
+
+
+
+
+
+}
+
+function volver() {
+  document.getElementById("cuerpoTabla").innerHTML="";
+  location.reload()
 }

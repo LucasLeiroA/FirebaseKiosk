@@ -1,6 +1,6 @@
 window.onload=principal;
 
-import { getItems , modificarItem , deleteSingleItem} from "../firebase.js";
+import { getItems , modificarItem } from "../firebase.js";
 
 
 function principal(){
@@ -73,7 +73,7 @@ async function mostrarTabla(){
                 btnsEliminar.forEach((btn)=>
                 btn.addEventListener("click", async (e) => {  
                   try {
-                    alert("hola")
+              
 
                       let id = (e.target.dataset.id);
                     
@@ -180,7 +180,10 @@ async function mostrarTabla(){
                         efectivo : nuevoValorContado
                       })
 
-                      alert("venta en Contado Anulada");
+                      swal({
+                        title: "Venta en contado Anulada",
+                        icon: "success",
+                      });
 
                 } catch (err) {
                     console.log(err)
@@ -392,7 +395,10 @@ async function mostrarTabla(){
 
                 await modificarItem("EstadoDeCaja" , "2" , nuevoEstado)
 
-                alert("venta anulada correctamente")
+                swal({
+                    title: "Venta en cuenta corriente anulada correctamente",
+                    icon: "success",
+                  });
                 } catch (err) {
                     console.log(err)
                 }          
@@ -560,8 +566,11 @@ async function mostrarTabla(){
                         VentasTrasferencias : nuevoValorContado
                     })
 
-                    alert("venta en Tarjete o Trasferencia Anulada");
-
+             
+                    swal({
+                        title: "venta en Tarjeta o Trasferencia Anulada",
+                        icon: "success",
+                      });
 
 
                 } catch (err) {

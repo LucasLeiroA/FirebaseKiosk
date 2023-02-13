@@ -33,7 +33,7 @@ function principal(){
     document.getElementById("btn_db").addEventListener("click", ingresoDb);
 }
 function ingresoDb() {
-    window.location="./ManejoDB/manejoDB.html";
+    window.location="../ManejoDB/manejoDB.html";
 }
 
 

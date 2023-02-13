@@ -92,3 +92,42 @@
     width: 80%;
     text-align: center;
 }
+#btn-detalle{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: green;
+    padding: 3px 3vw;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+#container-btn{
+    display: flex;
+    margin: auto;
+    
+}
+#cabeza-detalle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+}
+#cuerpo-detalle{
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly !important;
+
+}
+#btn-volver{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: rgb(34, 34, 197);
+    padding: 3px 3vw;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    margin-right: 5px;
+    display: flex;
+    margin: auto;
+    display: none;
+}

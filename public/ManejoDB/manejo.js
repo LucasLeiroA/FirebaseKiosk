@@ -1,18 +1,23 @@
+window.onload = principal;
 
-let url = localStorage.getItem("urlRegistrar");
+import { getItems } from "../firebase.js";
+
+let urlRegistrar = localStorage.getItem("urlRegistrar");
 
 let urlActual = window.location.href;
-UrlAnterior = document.referrer;
+let UrlAnterior = document.referrer;
 
 if (UrlAnterior !== urlActual) {
-    if(UrlAnterior !== url ){
-    alert('no intentes hackear')
-    window.location= "../Admin.html";
-}
+    
+    if(UrlAnterior !== urlRegistrar ){
+        
+        alert('Acceso denegado!')
+        window.location= "../RegistrarStock/Admin.html";
+    }
 }
 
 
-window.onload = principal;
+
 
 function principal(){
     document.getElementById("btn_option").addEventListener("click", manejo)
@@ -383,6 +388,59 @@ async function manejo(){
                 <td>Eliminar Todas las ventas</td>
                 <td><Button onclick="elimTotalVentas()">Eliminar</Button></td>                    
             </tr>`;
+
+
+    }
+
+    if(opcion == "dineroEnStock"){
+        let stock = await getItems("articulo");
+
+        document.getElementById("cabeza_tabla").innerHTML=`
+        
+                <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Articulo</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">total</th>
+                </tr>
+
+        `
+
+        let total;
+        let totalFinal = 0;       
+
+        for (const item of stock) {
+            if (item.cantidad > 0) {
+
+                total = item.cantidad * item.PrecioVenta;
+                totalFinal = totalFinal + total;
+
+                document.getElementById("cuerpo_tabla").innerHTML+=`
+                
+                    <tr>
+                        <th scope="row">${item.id}</th>
+                        <td>${item.nombre}</td>
+                        <td>${item.cantidad}</td>
+                        <td>${item.PrecioVenta}</td>
+                        <td>${total}</td>
+                </tr>
+
+                `
+            }
+        }
+
+        document.getElementById("pie_tabla").innerHTML = `
+        
+            <tr>
+                    <th></th>
+                    <td></td>
+                    <td></td>
+                    <td>Total Dinero Stock-----></td>    
+                    <td>${totalFinal}</td>                    
+            </tr>   
+
+        `
 
 
     }

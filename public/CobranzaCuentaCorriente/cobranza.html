@@ -104,7 +104,11 @@
                     pattern="[0-9]+"
                     placeholder="Ingrese el monto a pagar"
                     />
-                    <button id="btnpagar" class="btn btn-secondary">Pagar</button>
+                    <div id="container-btn">
+
+                      <button id="btn-detalle">Detalle</button>
+                      <button id="btnpagar" class="btn btn-secondary">Pagar</button>
+                    </div>
       </section>
       <section id="section2" class="border border-dark rounded-3">
                     <h3 id="mostrar" class="btn btn-dark">Clientes</h3>
@@ -119,10 +123,12 @@
                         /></button>
                     </div>
                     <div id="div_mostrar">
-                           <table class="table" id="tabla_muestra" >
-                    <tbody id="cuerpoTabla"></tbody>
-                    </table>
-                    </div>
+                     <table class="table" id="tabla_muestra" >
+                    <tbody id="cuerpoTabla">
+                    </tbody>
+                  </table>
+                  <button id="btn-volver">Volver</button>
+                  </div>
                  
       </section>
     </div>
