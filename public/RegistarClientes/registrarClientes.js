@@ -11,7 +11,7 @@ var var_id;
 var editStatus = false;
 const coleccion = "clientes";
 
-
+  
 const cuerpoTabla = document.getElementById("CuerpoTabla");
 
 
@@ -66,13 +66,20 @@ document.getElementById("CuerpoTabla").innerHTML="";
         btn.addEventListener("click", async (e) => {  
           try {
             let id = (e.target.dataset.id);
-           
-            deleteSingleItem(coleccion, id)
-            alert("cliente eliminado correctamente");
-            location.reload();
+            deleteSingleItem("clientes", id)
+            .then(    swal({
+              title: "Cliente Eliminado Correctamente",
+              icon: "success",
+            }))
+
           } catch (error) {
             console.log(error);
           }
+          setTimeout(function(){
+           location.reload();
+        }, 2000);
+
+
         })
         )
             
