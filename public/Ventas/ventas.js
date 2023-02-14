@@ -52,16 +52,16 @@ function principal() {
     .getElementById("aceptarVenta_tarjeta")
     .addEventListener("click", aceptarVentaTarjeta);
 }
+
 var var_id;
 var var_idCliente;
-var fecha = new Date();
-var dia = fecha.getDate();
-var mes = 1 + fecha.getMonth();
-var ano = fecha.getFullYear()
+const fecha = new Date();
+const day = fecha.getDate();
+const month = 1 + fecha.getMonth();
+const years = fecha.getFullYear()
 
-console.log(dia);
-console.log(mes);
-console.log(ano);
+
+
 function mostarContado() {
   document.getElementById("seccion1").style.display = "block";
   document.getElementById("seccion2").style.display = "none";
@@ -195,9 +195,10 @@ async function aceptarVentaContado() {
       idCat = item.categoriaId;
     }
   }
-if (nombre != "") {
+if (nombre != "" && total > 0) {
 
-          if (cantidad > 0 && cantidad <= cant && total > 0 ) {
+          if (cantidad > 0 && cantidad <= cant) {
+
             let EstadoCaja = await getItems("EstadoDeCaja");
             let totalViejo;
 
@@ -221,9 +222,9 @@ if (nombre != "") {
               cantidad: cantidad,
               totalVenta: total,
               estadoVenta: 1,
-              dia: dia,
-              mes: mes,
-              ano:ano
+              dia: day,
+              mes: month,
+              ano: years
             });
 
             let nuevaCantidad = cant - cantidad;
@@ -413,10 +414,10 @@ async function aceptarVentaCuentaCorriente() {
         idCat = item.categoriaId;
       }
     }
-          if (nombreCliente != "") {
+          if (nombreCliente != "" && total > 0 ) {
              if (nombre != "") {
 
-                  if (cantidad > 0 && cantidad <= cant && total > 0 ) {
+                  if (cantidad > 0 && cantidad <= cant ) {
                     let estado = await getItems("EstadoDeCaja");
                     let totales;
                     let final;
@@ -439,9 +440,9 @@ async function aceptarVentaCuentaCorriente() {
                       totalVenta: total,
                       clientesId: clienteid,
                       estadoVenta: 1,
-                      dia: dia,
-                      mes: mes,
-                      ano:ano
+                      dia: day,
+                      mes: month,
+                      ano:years
                     }
                     let article = await IngresarDatos("ventas", newVenta );
 
@@ -672,8 +673,8 @@ async function aceptarVentaTarjeta() {
     }
   }
 
-  if (nombre != "") {
-    if (cantidad > 0 && cantidad <= cant && total > 0 ) {
+  if (nombre != "" && total > 0) {
+    if (cantidad > 0 && cantidad <= cant  ) {
     try {
       let totales = await getItems("EstadoDeCaja");
 
@@ -697,9 +698,9 @@ async function aceptarVentaTarjeta() {
         cantidad: cantidad,
         totalVenta: total,
         estadoVenta: 1,
-        dia: dia,
-        mes: mes,
-        ano:ano
+        dia: day,
+        mes: month,
+        ano:years
       });
 
       let nuevaCantidad = cant - cantidad;

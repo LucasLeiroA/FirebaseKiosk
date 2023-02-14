@@ -68,6 +68,7 @@ async function aceptarOpcion(){
             `
             <tr>
                 <th scope="col">ID#</th>
+                <th scope="col">Dia</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -101,6 +102,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                         <th scope="row">${item.id}</th>
+                        <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
@@ -118,6 +120,7 @@ async function aceptarOpcion(){
             `
             <tr>
                 <th scope="col">ID#</th>
+                <th>Dia</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -158,6 +161,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                         <th scope="row">${item.id}</th>
+                        <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
@@ -182,6 +186,7 @@ async function aceptarOpcion(){
             `
             <tr>
                 <th scope="col">ID#</th>
+                <th>Dia</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -218,6 +223,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                         <th scope="row">${item.id}</th>
+                        <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
