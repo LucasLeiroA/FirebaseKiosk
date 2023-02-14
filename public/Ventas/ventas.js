@@ -55,9 +55,13 @@ function principal() {
 var var_id;
 var var_idCliente;
 var fecha = new Date();
-var dia = fecha.getDay();
-var mes = fecha.getMonth();
+var dia = fecha.getDate();
+var mes = 1 + fecha.getMonth();
+var ano = fecha.getFullYear()
 
+console.log(dia);
+console.log(mes);
+console.log(ano);
 function mostarContado() {
   document.getElementById("seccion1").style.display = "block";
   document.getElementById("seccion2").style.display = "none";
@@ -193,7 +197,7 @@ async function aceptarVentaContado() {
   }
 if (nombre != "") {
 
-          if (cantidad > 0 && cantidad <= cant) {
+          if (cantidad > 0 && cantidad <= cant && total > 0 ) {
             let EstadoCaja = await getItems("EstadoDeCaja");
             let totalViejo;
 
@@ -219,6 +223,7 @@ if (nombre != "") {
               estadoVenta: 1,
               dia: dia,
               mes: mes,
+              ano:ano
             });
 
             let nuevaCantidad = cant - cantidad;
@@ -411,7 +416,7 @@ async function aceptarVentaCuentaCorriente() {
           if (nombreCliente != "") {
              if (nombre != "") {
 
-                    if (cantidad > 0 && cantidad <= cant ) {
+                  if (cantidad > 0 && cantidad <= cant && total > 0 ) {
                     let estado = await getItems("EstadoDeCaja");
                     let totales;
                     let final;
@@ -436,6 +441,7 @@ async function aceptarVentaCuentaCorriente() {
                       estadoVenta: 1,
                       dia: dia,
                       mes: mes,
+                      ano:ano
                     }
                     let article = await IngresarDatos("ventas", newVenta );
 
@@ -667,7 +673,7 @@ async function aceptarVentaTarjeta() {
   }
 
   if (nombre != "") {
-    if (cantidad > 0 && cantidad <= cant ) {
+    if (cantidad > 0 && cantidad <= cant && total > 0 ) {
     try {
       let totales = await getItems("EstadoDeCaja");
 
@@ -691,8 +697,9 @@ async function aceptarVentaTarjeta() {
         cantidad: cantidad,
         totalVenta: total,
         estadoVenta: 1,
-        dia: fecha.getDate(),
-        mes: fecha.getMonth(),
+        dia: dia,
+        mes: mes,
+        ano:ano
       });
 
       let nuevaCantidad = cant - cantidad;

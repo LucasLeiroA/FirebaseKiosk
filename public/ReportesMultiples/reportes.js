@@ -163,13 +163,13 @@ async function aceptarOpcion(){
                 }
                 }
               
-                document.getElementById("pieTabla").innerHTML =  `<tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td>Total-></td>
-                <td>${total_dia}</td>
-            </tr>`;
+                    document.getElementById("pieTabla").innerHTML =  `<tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td>Total-></td>
+                    <td>${total_dia}</td>
+                </tr>`;
             
             }  
         }
@@ -792,9 +792,112 @@ async function aceptarOpcion(){
                 }
                  
              }
+
+             if (reporte == "ventasPorFecha") {
+                
+                    const cabezaTabla = document.getElementById("cabezaTabla");
+                    
+                    document.getElementById("cabezaTabla").innerHTML=`
+                    <label for="start">Fecha inicial:   </label>
+
+                    <input type="date" id="input-fecha" name="trip-start"
+                        value="2023-02-12"
+                    >
+                    <Button id="btn-fecha"> Buscar </Button>
+                    `;
+
+                    const btnBuscar =  document.getElementById("btn-fecha");
+                    btnBuscar.addEventListener("click" ,  async () => {         
+                        let diass = document.getElementById("input-fecha").value;
+
+                        let vec = diass.split('-');
+                    
+                        let diaSolicitado = vec[2];
+                        let mesSolicitado = vec[1];
+                        let anoSolicitado = vec[0];
+                    
+                        console.log(diaSolicitado);
+                        console.log(mesSolicitado);
+                        console.log(anoSolicitado);
+                        document.getElementById("cabezaTabla2").innerHTML=
+                        `
+                        <tr>
+                            <th scope="col">ID#</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Articulo</th>
+                            <th scope="col">cantidad</th>
+                            <th scope="col">total</th>
+                        </tr>
+                        `
+
+                        let ventas = await getItems("ventas");
+                        let articulos = await getItems("articulo");
+                        let tipoVenta = await getItems("tipoVenta")
+                        let total_dia = 0;
+                        let nom;
+                        let tipo;
+                        
+            
+                  
+            
+                        for (let item of ventas) {
+                                if (((item.dia ==diaSolicitado) && (item.mes == mesSolicitado) && (item.ano ==  anoSolicitado))) {
+                                    if (item.estadoVenta == "1"){
+                                        
+                                let precio = parseInt( item.totalVenta)
+                                 total_dia = total_dia + precio;
+            
+                                for (let item2 of articulos) {
+                                    if (item.articuloId==item2.id) {
+                                        nom=item2.nombre;
+                                    }
+                                }
+                
+                                for (let item3 of tipoVenta) {
+                                    if (item.tipoVentaId==item3.id) {
+                                        tipo=item3.tipo;
+                                    }
+                                }
+                               
+                
+                
+                                document.getElementById("tablaMuestra").innerHTML+=
+                                `<tr>
+                                    <th scope="row">${item.id}</th>
+                                    <td>${tipo}</td>
+                                    <td>${nom}</td>
+                                    <td>${item.cantidad}</td>
+                                    <td>${item.totalVenta}</td>                    
+                                </tr>`;
+                            }
+                            }
+                          
+                                document.getElementById("pieTabla").innerHTML =  `<tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td></td>
+                                <td>Total-></td>
+                                <td>${total_dia}</td>
+                            </tr>`;
+                        
+                        }  
+
+
+
+
+
+                  })
+                 
+
+
+                   
+
+             }
+
         
         
     } catch (err) {
         alert(err)
     }
 }
+
