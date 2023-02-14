@@ -8,6 +8,9 @@ function principal(){
 }
 
 const fecha = new Date();
+var dia = fecha.getDate()
+var mes = 1 + fecha.getMonth();
+var ano = fecha.getFullYear();
 
 async function aceptarOpcion(){
 
@@ -132,7 +135,7 @@ async function aceptarOpcion(){
       
 
             for (let item of ventas) {
-                    if ((item.dia == fecha.getDay() && item.mes == fecha.getMonth())) {
+                    if ((item.dia == dia && item.mes == mes)) {
                         if (item.estadoVenta == "1"){
                             
                     let precio = parseInt( item.totalVenta)
@@ -193,7 +196,7 @@ async function aceptarOpcion(){
             let total_mes = 0;
 
             for (let item of ventas) {
-                if (item.mes==fecha.getMonth() && item.estadoVenta==1) {
+                if (item.mes==mes && item.estadoVenta==1) {
                   
                     let precio = parseInt(item.totalVenta);
                     total_mes = total_mes + precio;  
@@ -809,6 +812,7 @@ async function aceptarOpcion(){
                     const btnBuscar =  document.getElementById("btn-fecha");
                     btnBuscar.addEventListener("click" ,  async () => {         
                         let diass = document.getElementById("input-fecha").value;
+                        document.getElementById("tablaMuestra2").innerHTML="";
 
                         let vec = diass.split('-');
                     
@@ -816,9 +820,7 @@ async function aceptarOpcion(){
                         let mesSolicitado = vec[1];
                         let anoSolicitado = vec[0];
                     
-                        console.log(diaSolicitado);
-                        console.log(mesSolicitado);
-                        console.log(anoSolicitado);
+                        
                         document.getElementById("cabezaTabla2").innerHTML=
                         `
                         <tr>
@@ -841,7 +843,7 @@ async function aceptarOpcion(){
                   
             
                         for (let item of ventas) {
-                                if (((item.dia ==diaSolicitado) && (item.mes == mesSolicitado) && (item.ano ==  anoSolicitado))) {
+                                if (((item.dia == diaSolicitado) && (item.mes == mesSolicitado) && (item.ano == anoSolicitado))) {
                                     if (item.estadoVenta == "1"){
                                         
                                 let precio = parseInt( item.totalVenta)
@@ -861,7 +863,7 @@ async function aceptarOpcion(){
                                
                 
                 
-                                document.getElementById("tablaMuestra").innerHTML+=
+                                document.getElementById("tablaMuestra2").innerHTML+=
                                 `<tr>
                                     <th scope="row">${item.id}</th>
                                     <td>${tipo}</td>
