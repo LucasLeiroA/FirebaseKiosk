@@ -174,6 +174,7 @@ async function aceptarOpcion(){
                     <th scope="row"></th>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>Total-></td>
                     <td>${total_dia}</td>
                 </tr>`;
@@ -235,6 +236,7 @@ async function aceptarOpcion(){
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>Total mes-></td>
                 <td>${total_mes}</td>
             </tr>`;
@@ -287,6 +289,7 @@ async function aceptarOpcion(){
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td>Total Contado-></td>
                 <td>${total1}</td>
@@ -353,6 +356,7 @@ async function aceptarOpcion(){
                 <th scope="row"></th>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>Total CuentaCorriente-></td>
                 <td>${total1}</td>
             </tr>`;
@@ -404,6 +408,7 @@ async function aceptarOpcion(){
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td>Total Tarjeta-></td>
                 <td>${total1}</td>
@@ -465,6 +470,7 @@ async function aceptarOpcion(){
                     document.getElementById("pieTabla").innerHTML=
                     `<tr>
                     <th scope="row"></th>
+                    <td></td>
                     <td></td>
                     <td>Total Anuladas-></td>
                     <td>${total1}</td>
