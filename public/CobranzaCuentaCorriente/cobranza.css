@@ -108,14 +108,16 @@
     
 }
 #cabeza-detalle{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between !important;
+    justify-content: space-around !important;
 }
 #cuerpo-detalle{
+    width: 100%;
     display: flex;
     padding: 10px;
-    justify-content: space-evenly !important;
+    justify-content: space-around  !important;
 
 }
 #btn-volver{

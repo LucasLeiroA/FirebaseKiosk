@@ -10,6 +10,12 @@ function principal(){
 }
 var var_id;
 
+const fecha = new Date();
+var day = fecha.getDate()
+var month = 1 + fecha.getMonth();
+var years = fecha.getFullYear();
+
+
 const cuerpoTabla = document.getElementById("cuerpoTabla");
 
 window.addEventListener("DOMContentLoaded",async (e) => {
@@ -156,7 +162,10 @@ async function pagaoDeuda(){
 
     await IngresarDatos("pagosCuentaCorriente",{
         clientesId:clienteId,
-        pago:pago
+        pago:pago,
+        dia:day,
+        mes:month,
+        ano:years
     })
 
     let totalEfec;
@@ -219,6 +228,7 @@ async function detalleCliente(){
   document.getElementById("cuerpoTabla").innerHTML="";
   document.getElementById("cuerpoTabla").innerHTML=`
   <tr id="cabeza-detalle">
+  <th scope="col">Fecha</th>
   <th scope="col">Articulo</th>
   <th scope="col">Cantidad</th>
 </tr>
@@ -246,6 +256,7 @@ async function detalleCliente(){
                             
                              document.getElementById("cuerpoTabla").innerHTML+= `
                              <tr id="cuerpo-detalle">
+                             <td>${item.dia}/${item.mes}/${item.ano}</td>
                              <td >${item2.nombre}</td>
                              <td >${item.cantidad}</td>
                            </tr>

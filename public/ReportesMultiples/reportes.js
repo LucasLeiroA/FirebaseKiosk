@@ -248,6 +248,7 @@ async function aceptarOpcion(){
             `
             <tr>
                     <th scope="col">#ID</th>
+                    <th scope="col">Dia</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">total</th>
@@ -276,6 +277,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                     <th scope="row">${item.id}</th>
+                    <td>${item.dia}/${item.mes}/${item.ano}</td>
                     <td>${nombre}</td>
                     <td>${item.cantidad}</td>
                     <td>${item.totalVenta}</td>
@@ -299,6 +301,7 @@ async function aceptarOpcion(){
             `
             <tr>
                     <th scope="col">#ID</th>
+                    <th scope="col">Dia</th>
                     <th scope="col">Cliente</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
@@ -338,6 +341,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                         <th scope="row">${item.id}</th>
+                        <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${Cliente}</td>
                         <td>${articulo}</td>
                         <td>${item.cantidad}</td>
@@ -360,7 +364,8 @@ async function aceptarOpcion(){
             document.getElementById("cabezaTabla").innerHTML+=
             `
             <tr>
-                    <th scope="col">#ID</th>
+                    <th scope="col">#ID</th
+                    <th scope="col">Dia</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">total</th>
@@ -389,6 +394,7 @@ async function aceptarOpcion(){
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
                     <th scope="row">${item.id}</th>
+                    <td>${item.dia}/${item.mes}/${item.ano}</td>
                     <td>${nombre}</td>
                     <td>${item.cantidad}</td>
                     <td>${item.totalVenta}</td>
@@ -411,6 +417,7 @@ async function aceptarOpcion(){
             `
             <tr>
                     <th scope="col">#ID</th>
+                    <th>Dia</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">total</th>
@@ -449,6 +456,7 @@ async function aceptarOpcion(){
                         document.getElementById("tablaMuestra").innerHTML+=
                         `<tr>
                             <th scope="row">${item.id}</th>
+                            <td>${item.dia}/${item.mes}/${item.ano}</td>
                             <td>${articulo}</td>
                             <td>${item.cantidad}</td>
                             <td>${item.totalVenta}</td>
@@ -527,6 +535,7 @@ async function aceptarOpcion(){
                 `
                 <tr>
                         <th scope="col">#ID</th>
+                        <th>Dia</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Pago</th>
                 </tr>
@@ -543,6 +552,7 @@ async function aceptarOpcion(){
                                 document.getElementById("tablaMuestra").innerHTML+=
                             `<tr>
                                 <th scope="row">${item.id}</th>
+                                <td>${item.dia}/${item.mes}/${item.ano}</td>
                                 <td>${item2.nomYape}</td>
                                 <td>${item.pago}</td>
                                 

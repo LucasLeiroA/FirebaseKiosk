@@ -199,7 +199,8 @@ if (nombre != "" && total > 0) {
 
           if (cantidad > 0 && cantidad <= cant) {
 
-            let EstadoCaja = await getItems("EstadoDeCaja");
+            if (total > 0) {
+               let EstadoCaja = await getItems("EstadoDeCaja");
             let totalViejo;
 
             for (let item of EstadoCaja) {
@@ -248,6 +249,13 @@ if (nombre != "" && total > 0) {
             document.getElementById("articuloContado").value = "";
             document.getElementById("cantidadContado").value = "";
             document.getElementById("totalContado").value = "0";
+            } else {
+              swal({
+                title: "El total tiene que ser mayor a 0",
+                icon: "error",
+              });
+            }
+           
           } else if (cant == 0) {
             swal({
               title: "NO hay stock de este procuto",
@@ -414,11 +422,12 @@ async function aceptarVentaCuentaCorriente() {
         idCat = item.categoriaId;
       }
     }
-          if (nombreCliente != "" && total > 0 ) {
+          if (nombreCliente != "" ) {
              if (nombre != "") {
 
                   if (cantidad > 0 && cantidad <= cant ) {
-                    let estado = await getItems("EstadoDeCaja");
+                    if (total > 0) {
+                      let estado = await getItems("EstadoDeCaja");
                     let totales;
                     let final;
                     for (let item of estado) {
@@ -489,6 +498,13 @@ async function aceptarVentaCuentaCorriente() {
                       title: "Venta Realizada",
                       icon: "success",
                     });
+                    }else{
+                      swal({
+                        title: "El total tiene que ser mayor a 0",
+                        icon: "error",
+                      });
+                    }
+                    
                   } else if (cant == 0) {
                   swal({
                     title: "NO hay stock de este procuto",
@@ -673,9 +689,10 @@ async function aceptarVentaTarjeta() {
     }
   }
 
-  if (nombre != "" && total > 0) {
+  if (nombre != "") {
     if (cantidad > 0 && cantidad <= cant  ) {
-    try {
+      if (total > 0) {
+         try {
       let totales = await getItems("EstadoDeCaja");
 
       let totalViejo;
@@ -725,6 +742,13 @@ async function aceptarVentaTarjeta() {
     } catch (err) {
       alert(err);
     }
+      } else {
+        swal({
+          title: "El total tiene que ser mayor a 0",
+          icon: "error",
+        });
+      }
+   
   } else if (cant == 0) {
     swal({
       title: "NO hay stock de este procuto",
