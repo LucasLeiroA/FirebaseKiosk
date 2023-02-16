@@ -1,0 +1,18 @@
+#section2 {
+    width: 100%;
+}
+#section2 table{
+    width: 100%;
+}
+#cabeza_tabla{
+    text-align: center;
+    background-color: rgb(217, 146, 4);
+}
+#cuerpo_tabla td{
+    border: 1px solid black;
+    text-align: center;
+}
+#pie_tabla{
+    text-align: center;
+    background-color: rgb(125, 191, 20);
+}

@@ -419,12 +419,12 @@ async function manejo(){
                 document.getElementById("cuerpo_tabla").innerHTML+=`
                 
                     <tr>
-                        <th scope="row">${item.id}</th>
+                        <td scope="row">${item.id}</td>
                         <td>${item.nombre}</td>
                         <td>${item.cantidad}</td>
                         <td>${item.PrecioVenta}</td>
                         <td>${total}</td>
-                </tr>
+                  </tr>
 
                 `
             }

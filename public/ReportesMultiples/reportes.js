@@ -100,7 +100,7 @@ async function aceptarOpcion(){
     
     
                     document.getElementById("tablaMuestra").innerHTML+=
-                    `<tr>
+                    `<tr id="${tipo}">
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${tipo}</td>
@@ -138,7 +138,8 @@ async function aceptarOpcion(){
       
 
             for (let item of ventas) {
-                    if ((item.dia == dia && item.mes == mes)) {
+                if (item.tipoVentaId == "1" || item.tipoVentaId =="3") {
+                     if ((item.dia == dia && item.mes == mes)) {
                         if (item.estadoVenta == "1"){
                             
                     let precio = parseInt( item.totalVenta)
@@ -159,7 +160,7 @@ async function aceptarOpcion(){
     
     
                     document.getElementById("tablaMuestra").innerHTML+=
-                    `<tr>
+                    `<tr id="${tipo}">
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
                         <td>${tipo}</td>
@@ -178,6 +179,8 @@ async function aceptarOpcion(){
                     <td>Total-></td>
                     <td>${total_dia}</td>
                 </tr>`;
+                }
+                   
             
             }  
         }
@@ -368,11 +371,11 @@ async function aceptarOpcion(){
             document.getElementById("cabezaTabla").innerHTML+=
             `
             <tr>
-                    <th scope="col">#ID</th
-                    <th scope="col">Dia</th>
-                    <th scope="col">Articulo</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">total</th>
+                <th scope="col">ID#</th>
+                <th>Dia</th>
+                <th scope="col">Articulo</th>
+                <th scope="col">cantidad</th>
+                <th scope="col">total</th>
             </tr>
     
             `
@@ -397,13 +400,13 @@ async function aceptarOpcion(){
                     }
                     document.getElementById("tablaMuestra").innerHTML+=
                     `<tr>
-                    <th scope="row">${item.id}</th>
-                    <td>${item.dia}/${item.mes}/${item.ano}</td>
-                    <td>${nombre}</td>
-                    <td>${item.cantidad}</td>
-                    <td>${item.totalVenta}</td>
+                        <td scope="row">${item.id}</td>
+                        <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${nombre}</td>
+                        <td>${item.cantidad}</td>
+                        <td>${item.totalVenta}</td>
                   
-                </tr>`;
+                     </tr>`;
                 }
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
@@ -917,6 +920,204 @@ async function aceptarOpcion(){
                    
 
              }
+             if (reporte == "ventasPorFechaContado") {
+                
+                const cabezaTabla = document.getElementById("cabezaTabla");
+                
+                document.getElementById("cabezaTabla").innerHTML=`
+                <label for="start">Fecha inicial:   </label>
+
+                <input type="date" id="input-fecha" name="trip-start"
+                    value="2023-02-12"
+                >
+                <Button id="btn-fecha"> Buscar </Button>
+                `;
+
+                const btnBuscar =  document.getElementById("btn-fecha");
+                btnBuscar.addEventListener("click" ,  async () => {         
+                    let diass = document.getElementById("input-fecha").value;
+                    document.getElementById("tablaMuestra2").innerHTML="";
+
+                    let vec = diass.split('-');
+                
+                    let diaSolicitado = vec[2];
+                    let mesSolicitado = vec[1];
+                    let anoSolicitado = vec[0];
+                
+                    
+                    document.getElementById("cabezaTabla2").innerHTML=
+                    `
+                    <tr>
+                        <th scope="col">ID#</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Articulo</th>
+                        <th scope="col">cantidad</th>
+                        <th scope="col">total</th>
+                    </tr>
+                    `
+
+                    let ventas = await getItems("ventas");
+                    let articulos = await getItems("articulo");
+                    let tipoVenta = await getItems("tipoVenta")
+                    let total_dia = 0;
+                    let nom;
+                    let tipo;
+                    
+        
+              
+        
+                    for (let item of ventas) {
+                            if (((item.dia == diaSolicitado) && (item.mes == mesSolicitado) && (item.ano == anoSolicitado))) {
+                                if (item.estadoVenta == "1" &&  item.tipoVentaId == "1"){
+                                    
+                            let precio = parseInt( item.totalVenta)
+                             total_dia = total_dia + precio;
+        
+                            for (let item2 of articulos) {
+                                if (item.articuloId==item2.id) {
+                                    nom=item2.nombre;
+                                }
+                            }
+            
+                            for (let item3 of tipoVenta) {
+                                if (item.tipoVentaId==item3.id) {
+                                    tipo=item3.tipo;
+                                }
+                            }
+                           
+            
+            
+                            document.getElementById("tablaMuestra2").innerHTML+=
+                            `<tr>
+                                <th scope="row">${item.id}</th>
+                                <td>${tipo}</td>
+                                <td>${nom}</td>
+                                <td>${item.cantidad}</td>
+                                <td>${item.totalVenta}</td>                    
+                            </tr>`;
+                        }
+                        }
+                      
+                            document.getElementById("pieTabla").innerHTML =  `<tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td>Total-></td>
+                            <td>${total_dia}</td>
+                        </tr>`;
+                    
+                    }  
+
+
+
+
+
+              })
+             
+
+
+               
+
+         }
+         if (reporte == "ventasPorFechaTransferencia") {
+                
+            const cabezaTabla = document.getElementById("cabezaTabla");
+            
+            document.getElementById("cabezaTabla").innerHTML=`
+            <label for="start">Fecha inicial:   </label>
+
+            <input type="date" id="input-fecha" name="trip-start"
+                value="2023-02-12"
+            >
+            <Button id="btn-fecha"> Buscar </Button>
+            `;
+
+            const btnBuscar =  document.getElementById("btn-fecha");
+            btnBuscar.addEventListener("click" ,  async () => {         
+                let diass = document.getElementById("input-fecha").value;
+                document.getElementById("tablaMuestra2").innerHTML="";
+
+                let vec = diass.split('-');
+            
+                let diaSolicitado = vec[2];
+                let mesSolicitado = vec[1];
+                let anoSolicitado = vec[0];
+            
+                
+                document.getElementById("cabezaTabla2").innerHTML=
+                `
+                <tr>
+                    <th scope="col">ID#</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Articulo</th>
+                    <th scope="col">cantidad</th>
+                    <th scope="col">total</th>
+                </tr>
+                `
+
+                let ventas = await getItems("ventas");
+                let articulos = await getItems("articulo");
+                let tipoVenta = await getItems("tipoVenta")
+                let total_dia = 0;
+                let nom;
+                let tipo;
+                
+    
+          
+    
+                for (let item of ventas) {
+                        if (((item.dia == diaSolicitado) && (item.mes == mesSolicitado) && (item.ano == anoSolicitado))) {
+                            if (item.estadoVenta == "1" && item.tipoVentaId == "3"){
+                                
+                        let precio = parseInt( item.totalVenta)
+                         total_dia = total_dia + precio;
+    
+                        for (let item2 of articulos) {
+                            if (item.articuloId==item2.id) {
+                                nom=item2.nombre;
+                            }
+                        }
+        
+                        for (let item3 of tipoVenta) {
+                            if (item.tipoVentaId==item3.id) {
+                                tipo=item3.tipo;
+                            }
+                        }
+                       
+        
+        
+                        document.getElementById("tablaMuestra2").innerHTML+=
+                        `<tr>
+                            <th scope="row">${item.id}</th>
+                            <td>${tipo}</td>
+                            <td>${nom}</td>
+                            <td>${item.cantidad}</td>
+                            <td>${item.totalVenta}</td>                    
+                        </tr>`;
+                    }
+                    }
+                  
+                        document.getElementById("pieTabla").innerHTML =  `<tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td>Total-></td>
+                        <td>${total_dia}</td>
+                    </tr>`;
+                
+                }  
+
+
+
+
+
+          })
+         
+
+
+           
+
+     }
 
         
         
