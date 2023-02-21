@@ -14,6 +14,7 @@ const fecha = new Date();
 var day = fecha.getDate()
 var month = 1 + fecha.getMonth();
 var years = fecha.getFullYear();
+var now = fecha.toLocaleTimeString('en-US');
 
 
 const cuerpoTabla = document.getElementById("cuerpoTabla");
@@ -165,7 +166,8 @@ async function pagaoDeuda(){
         pago:pago,
         dia:day,
         mes:month,
-        ano:years
+        ano:years,
+        hora:now
     })
 
     let totalEfec;

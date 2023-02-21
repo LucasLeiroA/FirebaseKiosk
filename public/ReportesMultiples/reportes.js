@@ -7,10 +7,15 @@ function principal(){
     document.getElementById("brnAceptar").addEventListener("click", aceptarOpcion)
 }
 
+
+ 
+// obtener la hora en la configuración regional de EE. UU.
+
 const fecha = new Date();
 var dia = fecha.getDate()
 var mes = 1 + fecha.getMonth();
 var ano = fecha.getFullYear();
+
 
 async function aceptarOpcion(){
 
@@ -69,6 +74,7 @@ async function aceptarOpcion(){
             <tr>
                 <th scope="col">ID#</th>
                 <th scope="col">Dia</th>
+                <th scope="col">Hora</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -103,6 +109,7 @@ async function aceptarOpcion(){
                     `<tr id="${tipo}">
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${item.hora}</td>
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
@@ -121,6 +128,7 @@ async function aceptarOpcion(){
             <tr>
                 <th scope="col">ID#</th>
                 <th>Dia</th>
+                <th>Hora</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -163,6 +171,7 @@ async function aceptarOpcion(){
                     `<tr id="${tipo}">
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${item.hora}</td>          
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
@@ -173,6 +182,7 @@ async function aceptarOpcion(){
               
                     document.getElementById("pieTabla").innerHTML =  `<tr>
                     <th scope="row"></th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -191,6 +201,7 @@ async function aceptarOpcion(){
             <tr>
                 <th scope="col">ID#</th>
                 <th>Dia</th>
+                <th>Hora</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
@@ -228,6 +239,7 @@ async function aceptarOpcion(){
                     `<tr>
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${item.hora}</td>
                         <td>${tipo}</td>
                         <td>${nom}</td>
                         <td>${item.cantidad}</td>
@@ -237,6 +249,7 @@ async function aceptarOpcion(){
 
                 document.getElementById("pieTabla").innerHTML =  `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -254,6 +267,7 @@ async function aceptarOpcion(){
             <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Dia</th>
+                    <th scope="col">Hora</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">total</th>
@@ -283,6 +297,7 @@ async function aceptarOpcion(){
                     `<tr>
                     <th scope="row">${item.id}</th>
                     <td>${item.dia}/${item.mes}/${item.ano}</td>
+                    <td>${item.hora}</td>
                     <td>${nombre}</td>
                     <td>${item.cantidad}</td>
                     <td>${item.totalVenta}</td>
@@ -292,6 +307,7 @@ async function aceptarOpcion(){
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>Total Contado-></td>
@@ -308,6 +324,7 @@ async function aceptarOpcion(){
             <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">Dia</th>
+                    <th scope="col">Hora</th>
                     <th scope="col">Cliente</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
@@ -348,6 +365,7 @@ async function aceptarOpcion(){
                     `<tr>
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${item.hora}</td>
                         <td>${Cliente}</td>
                         <td>${articulo}</td>
                         <td>${item.cantidad}</td>
@@ -357,6 +375,7 @@ async function aceptarOpcion(){
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -373,6 +392,7 @@ async function aceptarOpcion(){
             <tr>
                 <th scope="col">ID#</th>
                 <th>Dia</th>
+                <th>Hora</th>
                 <th scope="col">Articulo</th>
                 <th scope="col">cantidad</th>
                 <th scope="col">total</th>
@@ -402,6 +422,7 @@ async function aceptarOpcion(){
                     `<tr>
                         <td scope="row">${item.id}</td>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
+                        <td>${item.hora}</td>
                         <td>${nombre}</td>
                         <td>${item.cantidad}</td>
                         <td>${item.totalVenta}</td>
@@ -411,6 +432,7 @@ async function aceptarOpcion(){
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
                 <th scope="row"></th>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>Total Tarjeta-></td>
@@ -426,6 +448,7 @@ async function aceptarOpcion(){
             <tr>
                     <th scope="col">#ID</th>
                     <th>Dia</th>
+                    <th>Hora</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">total</th>
@@ -465,6 +488,7 @@ async function aceptarOpcion(){
                         `<tr>
                             <th scope="row">${item.id}</th>
                             <td>${item.dia}/${item.mes}/${item.ano}</td>
+                            <td>${item.hora}</td>
                             <td>${articulo}</td>
                             <td>${item.cantidad}</td>
                             <td>${item.totalVenta}</td>
@@ -473,6 +497,7 @@ async function aceptarOpcion(){
                     document.getElementById("pieTabla").innerHTML=
                     `<tr>
                     <th scope="row"></th>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>Total Anuladas-></td>
@@ -545,6 +570,7 @@ async function aceptarOpcion(){
                 <tr>
                         <th scope="col">#ID</th>
                         <th>Dia</th>
+                        <th>Hora</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Pago</th>
                 </tr>
@@ -562,6 +588,7 @@ async function aceptarOpcion(){
                             `<tr>
                                 <th scope="row">${item.id}</th>
                                 <td>${item.dia}/${item.mes}/${item.ano}</td>
+                                <td>${item.hora}</td>
                                 <td>${item2.nomYape}</td>
                                 <td>${item.pago}</td>
                                 
@@ -849,8 +876,9 @@ async function aceptarOpcion(){
                         document.getElementById("cabezaTabla2").innerHTML=
                         `
                         <tr>
-                            <th scope="col">ID#</th>
+                            <th scope="col">ID#</th>                   
                             <th scope="col">Tipo</th>
+                            <th scope="col">Hora</th>
                             <th scope="col">Articulo</th>
                             <th scope="col">cantidad</th>
                             <th scope="col">total</th>
@@ -892,6 +920,7 @@ async function aceptarOpcion(){
                                 `<tr>
                                     <th scope="row">${item.id}</th>
                                     <td>${tipo}</td>
+                                    <td>${item.hora}</td>
                                     <td>${nom}</td>
                                     <td>${item.cantidad}</td>
                                     <td>${item.totalVenta}</td>                    
@@ -901,6 +930,7 @@ async function aceptarOpcion(){
                           
                                 document.getElementById("pieTabla").innerHTML =  `<tr>
                                 <th scope="row"></th>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>Total-></td>
@@ -950,6 +980,7 @@ async function aceptarOpcion(){
                     <tr>
                         <th scope="col">ID#</th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Hora</th>
                         <th scope="col">Articulo</th>
                         <th scope="col">cantidad</th>
                         <th scope="col">total</th>
@@ -991,6 +1022,7 @@ async function aceptarOpcion(){
                             `<tr>
                                 <th scope="row">${item.id}</th>
                                 <td>${tipo}</td>
+                                <td>${item.hora}</td>
                                 <td>${nom}</td>
                                 <td>${item.cantidad}</td>
                                 <td>${item.totalVenta}</td>                    
@@ -1000,6 +1032,7 @@ async function aceptarOpcion(){
                       
                             document.getElementById("pieTabla").innerHTML =  `<tr>
                             <th scope="row"></th>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td>Total-></td>
@@ -1049,6 +1082,7 @@ async function aceptarOpcion(){
                 <tr>
                     <th scope="col">ID#</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Hora</th>
                     <th scope="col">Articulo</th>
                     <th scope="col">cantidad</th>
                     <th scope="col">total</th>
@@ -1090,6 +1124,7 @@ async function aceptarOpcion(){
                         `<tr>
                             <th scope="row">${item.id}</th>
                             <td>${tipo}</td>
+                            <td>${item.hora}</td>
                             <td>${nom}</td>
                             <td>${item.cantidad}</td>
                             <td>${item.totalVenta}</td>                    
@@ -1099,6 +1134,7 @@ async function aceptarOpcion(){
                   
                         document.getElementById("pieTabla").innerHTML =  `<tr>
                         <th scope="row"></th>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td>Total-></td>

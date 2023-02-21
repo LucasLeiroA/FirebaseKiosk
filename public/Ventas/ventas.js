@@ -59,6 +59,8 @@ const fecha = new Date();
 const day = fecha.getDate();
 const month = 1 + fecha.getMonth();
 const years = fecha.getFullYear()
+const now = fecha.toLocaleTimeString('en-US');
+  
 
 
 
@@ -225,7 +227,8 @@ if (nombre != "" && total > 0) {
               estadoVenta: 1,
               dia: day,
               mes: month,
-              ano: years
+              ano: years,
+              hora:now
             });
 
             let nuevaCantidad = cant - cantidad;
@@ -451,7 +454,8 @@ async function aceptarVentaCuentaCorriente() {
                       estadoVenta: 1,
                       dia: day,
                       mes: month,
-                      ano:years
+                      ano:years,
+                      hora:now
                     }
                     let article = await IngresarDatos("ventas", newVenta );
 
@@ -717,7 +721,8 @@ async function aceptarVentaTarjeta() {
         estadoVenta: 1,
         dia: day,
         mes: month,
-        ano:years
+        ano:years,
+        hora:now
       });
 
       let nuevaCantidad = cant - cantidad;

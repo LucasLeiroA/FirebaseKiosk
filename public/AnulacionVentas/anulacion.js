@@ -6,7 +6,8 @@ import { getItems , modificarItem } from "../firebase.js";
 function principal(){
      document.getElementById("btnAceptar").addEventListener("click",mostrarTabla)
 }
-
+const fecha = new Date();
+const now = fecha.toLocaleTimeString('en-US');
 
 const tablaMuestra = document.getElementById("tablaMuestra");
 var var_id;
@@ -112,6 +113,7 @@ async function mostrarTabla(){
                             estadoVenta : 2,
                             tipoVentaId : tipoVentaId,
                             totalVenta: totalVenta,
+                            hora:now
                         }
                     
                        
@@ -294,7 +296,8 @@ async function mostrarTabla(){
                          estadoVenta : 2,
                          tipoVentaId : tipoVentaId,
                          totalVenta: totalVenta,
-                         clientesId:idCliente
+                         clientesId:idCliente,
+                         hora:now
                      }
                  
                     
