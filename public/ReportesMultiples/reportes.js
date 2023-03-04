@@ -318,8 +318,35 @@ async function aceptarOpcion(){
         }
 
         if (reporte=="ventasCuentaCorriente") {
+
+
+
             
-            document.getElementById("cabezaTabla").innerHTML+=
+            const cabezaTabla = document.getElementById("cabezaTabla");
+                    
+            document.getElementById("cabezaTabla").innerHTML=`
+            <label for="start">Fecha inicial:   </label>
+
+            <input type="date" id="input-fecha" name="trip-start"
+                value="2023-02-12"
+            >
+            <Button id="btn-fecha"> Buscar </Button>
+            `;
+
+            const btnBuscar =  document.getElementById("btn-fecha");
+            btnBuscar.addEventListener("click" ,  async () => {         
+                let diass = document.getElementById("input-fecha").value;
+                document.getElementById("tablaMuestra2").innerHTML="";
+                document.getElementById("cabezaTabla").innerHTML="";
+
+                let vec = diass.split('-');
+            
+                let diaSolicitado = vec[2];
+                let mesSolicitado = vec[1];
+                let anoSolicitado = vec[0];
+           
+            
+            document.getElementById("cabezaTabla2").innerHTML+=
             `
             <tr>
                     <th scope="col">#ID</th>
@@ -336,6 +363,7 @@ async function aceptarOpcion(){
             let ventaCuentaCorriente=await getItems("ventas"); 
             let total1=0;
             for (let item of ventaCuentaCorriente) {
+                if (((item.dia == diaSolicitado) && (item.mes == mesSolicitado) && (item.ano == anoSolicitado))) {
                 if (item.tipoVentaId=="2" && item.estadoVenta!="2") {
                     
                     let total=parseInt(item.totalVenta)
@@ -361,7 +389,7 @@ async function aceptarOpcion(){
                         }
                     }
     
-                    document.getElementById("tablaMuestra").innerHTML+=
+                    document.getElementById("tablaMuestra2").innerHTML+=
                     `<tr>
                         <th scope="row">${item.id}</th>
                         <td>${item.dia}/${item.mes}/${item.ano}</td>
@@ -371,6 +399,7 @@ async function aceptarOpcion(){
                         <td>${item.cantidad}</td>
                         <td>${item.totalVenta}</td>
                     </tr>`;
+                }
                 }
                 document.getElementById("pieTabla").innerHTML=
                 `<tr>
@@ -384,6 +413,7 @@ async function aceptarOpcion(){
             </tr>`;
                 
             }
+        })
         }
         if (reporte=="ventasTarjeta") {
            
@@ -563,41 +593,69 @@ async function aceptarOpcion(){
              }
              if (reporte=="pagosDeCuentasCorrientes") {
 
-              
-                document.getElementById("pieTabla").innerHTML="";
-                document.getElementById("cabezaTabla").innerHTML+=
-                `
-                <tr>
-                        <th scope="col">#ID</th>
-                        <th>Dia</th>
-                        <th>Hora</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Pago</th>
-                </tr>
-        
-                `
-                let nombrcliente;
-                let pagos=await getItems("pagosCuentaCorriente");
-                let cliente=await getItems("clientes");
-                for (let item2 of cliente) {
+                const cabezaTabla = document.getElementById("cabezaTabla");
                     
-                    for (let item of pagos) {
-        
-                        if (item.clientesId==item2.id) {
-                                document.getElementById("tablaMuestra").innerHTML+=
-                            `<tr>
-                                <th scope="row">${item.id}</th>
-                                <td>${item.dia}/${item.mes}/${item.ano}</td>
-                                <td>${item.hora}</td>
-                                <td>${item2.nomYape}</td>
-                                <td>${item.pago}</td>
-                                
-                            </tr>`;
-                         }  
-                    }
+                    document.getElementById("cabezaTabla").innerHTML=`
+                    <label for="start">Fecha inicial:   </label>
+
+                    <input type="date" id="input-fecha" name="trip-start"
+                        value="2023-02-12"
+                    >
+                    <Button id="btn-fecha"> Buscar </Button>
+                    `;
+
+                    const btnBuscar =  document.getElementById("btn-fecha");
+                    btnBuscar.addEventListener("click" ,  async () => {         
+                        let diass = document.getElementById("input-fecha").value;
+
+                        document.getElementById("tablaMuestra2").innerHTML="";
+                        document.getElementById("cabezaTabla2").innerHTML="";
+
+                        let vec = diass.split('-');
+                    
+                        let diaSolicitado = vec[2];
+                        let mesSolicitado = vec[1];
+                        let anoSolicitado = vec[0];
+
                    
-                 }
+              
+                        document.getElementById("pieTabla").innerHTML="";
+                        document.getElementById("cabezaTabla2").innerHTML+=
+                        `
+                        <tr>
+                                <th scope="col">#ID</th>
+                                <th>Dia</th>
+                                <th>Hora</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Pago</th>
+                        </tr>
+                
+                        `
+                        let nombrcliente;
+                        let pagos=await getItems("pagosCuentaCorriente");
+                        let cliente=await getItems("clientes");
+                        for (let item2 of cliente) {
+                            
+                            for (let item of pagos) {
+                                if (((item.dia == diaSolicitado) && (item.mes == mesSolicitado) && (item.ano == anoSolicitado))) {
+                                if (item.clientesId==item2.id) {
+                                        document.getElementById("tablaMuestra2").innerHTML+=
+                                    `<tr>
+                                        <th scope="row">${item.id}</th>
+                                        <td>${item.dia}/${item.mes}/${item.ano}</td>
+                                        <td>${item.hora}</td>
+                                        <td>${item2.nomYape}</td>
+                                        <td>${item.pago}</td>
+                                        
+                                    </tr>`;
+                                }  
+                                }
+                            }
+                        
+                        }
+                        });
              }
+                ;
              if (reporte=="stockCompleto") {
                 let cat;
                 document.getElementById("cabezaTabla").innerHTML+=
