@@ -44,6 +44,6 @@
 ### Reportes Multiples
 [![Captura-de-pantalla-2023-04-03-124844.png](https://i.postimg.cc/d06MNtSk/Captura-de-pantalla-2023-04-03-124844.png)](https://postimg.cc/gwxBndpm)
   
-  ## Redes Sociales
+## Redes Sociales
 - LinkedIn:https://www.linkedin.com/in/lucas-leiro-1b1146190/
--GitHub:https://github.com/LucasLeiroA?tab=repositories
+- GitHub:https://github.com/LucasLeiroA?tab=repositories
