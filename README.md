@@ -32,3 +32,14 @@
 
 ## Vista previa
 ### Registrar Stock
+[![Captura-de-pantalla-2023-04-03-124740.png](https://i.postimg.cc/zfBp5zGR/Captura-de-pantalla-2023-04-03-124740.png)](https://postimg.cc/zysTF1WJ)
+
+### Realizar Venta
+[![Captura-de-pantalla-2023-04-03-124812.png](https://i.postimg.cc/zDcN1vDT/Captura-de-pantalla-2023-04-03-124812.png)](https://postimg.cc/DmLHr2Xz)
+
+###Cobranza a clientes
+
+[![Captura-de-pantalla-2023-04-03-124951.png](https://i.postimg.cc/Wbcv4Kr4/Captura-de-pantalla-2023-04-03-124951.png)](https://postimg.cc/BtpyYmmW)
+
+### Reportes Multiples
+[![Captura-de-pantalla-2023-04-03-124844.png](https://i.postimg.cc/d06MNtSk/Captura-de-pantalla-2023-04-03-124844.png)](https://postimg.cc/gwxBndpm)
